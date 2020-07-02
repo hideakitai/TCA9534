@@ -60,7 +60,7 @@ uint8_t output(const Level v);
 uint8_t output();
 uint8_t polarity(const uint8_t port, const Polarity pol);
 uint8_t polarity(const Polarity pol);
-uint8_t polarity()
+uint8_t polarity();
 uint8_t config(const uint8_t port, const Config cfg);
 uint8_t config(const Config cfg);
 uint8_t config();
