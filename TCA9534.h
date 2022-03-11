@@ -20,7 +20,7 @@ namespace arduino
         enum class Reg { INPUT_PORT, OUTPUT_PORT, POLARITY, CONFIG };
         enum class Config { OUT, IN };
         enum class Polarity { ORIGINAL, INVERSE };
-        enum class Level { L, H };
+        enum Level { L = 0x00, H = 0xFF };
 
         void attach(WireType& w) { wire = &w; }
 
@@ -35,14 +35,13 @@ namespace arduino
             return readByte(I2C_ADDR, (uint8_t)Reg::INPUT_PORT);
         }
 
-        uint8_t output(const uint8_t port, const Level v)
+        uint8_t output(const uint8_t port, const uint8_t v)
         {
-            return writeBit(I2C_ADDR, (uint8_t)Reg::OUTPUT_PORT, port, (uint8_t)v);
+            return writeBit(I2C_ADDR, (uint8_t)Reg::OUTPUT_PORT, port, v & 0x01);
         }
-        uint8_t output(const Level v)
+        uint8_t output(const uint8_t v)
         {
-            uint8_t d = (v == Level::L) ? 0x00 : 0xFF;
-            return writeByte(I2C_ADDR, (uint8_t)Reg::OUTPUT_PORT, (uint8_t)d);
+            return writeByte(I2C_ADDR, (uint8_t)Reg::OUTPUT_PORT, v);
         }
         uint8_t output()
         {

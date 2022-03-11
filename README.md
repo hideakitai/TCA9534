@@ -55,8 +55,8 @@ void setDeviceAddress(const uint8_t addr);
 
 uint8_t input(const uint8_t port);
 uint8_t input();
-uint8_t output(const uint8_t port, const Level v);
-uint8_t output(const Level v);
+uint8_t output(const uint8_t port, const uint8_t v);
+uint8_t output(const uint8_t v);
 uint8_t output();
 uint8_t polarity(const uint8_t port, const Polarity pol);
 uint8_t polarity(const Polarity pol);
