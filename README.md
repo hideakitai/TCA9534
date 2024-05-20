@@ -4,11 +4,15 @@ Arduino library for [TCA9534](https://www.ti.com/product/TCA9534) Low Voltage 8-
 
 ## Usage
 
+TCA9534 I2C address can be calculated as 0b0100000 + 0bA2A1A0
+More details in the [Datasheet](https://www.ti.com/lit/ds/symlink/tca9534.pdf), page 19
+
+
 ``` C++
 #include <TCA9534.h>
 
 TCA9534 ioex;
-const uint8_t IOEX_ADDR = 0x30; // A0 = A1 = A2 = 0
+const uint8_t IOEX_ADDR = 0x20; // A0 = A1 = A2 = 0
 
 void setup()
 {
