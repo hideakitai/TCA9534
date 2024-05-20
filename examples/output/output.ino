@@ -1,7 +1,7 @@
 #include <TCA9534.h>
 
 TCA9534 ioex;
-const uint8_t IOEX_ADDR = 0x30; // A0 = A1 = A2 = 0
+const uint8_t IOEX_ADDR = 0x20; // A0 = A1 = A2 = 0
 uint8_t count = 0;
 bool dir = false;
 
